@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<script src="myfile_1.js" type="text/javascript"></script>
+<script src="https://cdn.bootcss.com/jsbarcode/3.8.0/JsBarcode.all.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+</script>
+ 
+<title>Bank Code</title>
+<link rel="stylesheet" href="style1.css">
+</head>
+<body>
+	<div class="vbc">
+	
+	Virtual bar code:    <input id="code" type="text" name="cname" placeholder="enter the virtual code here" />
+	</div>
+	<br>
+	<div>
+	<button value="Decode" id="decode">Decode</button>
+	<input type="button" height="30" value="Hide" id="hide">
+	</div>
+	<br>
+	<div id="infoSec">
+		<div>
+		<table>
+			<tr>
+	    		<td><p id="ibanlabel">Payee's IBAN: </p></td>
+	    		<td><p id="iban"></p></td>
+	    		<td><p id="amountlabel">Amount to be paid: </p></td>
+	    		<td><p id="amount"></p></td>
+	  		</tr>
+	  		<tr>
+	    		<td><p id="prlabel">Payment reference: </p></td>
+	    		<td><p id="pr"></p></td>
+	    		<td><p id="datelabel">Due Date:</p> </td>
+	    		<td><p id="date"></p></td>
+	  		</tr> 
+	  		
+		</table>
+		</div>
+		<br>
+		<svg id="barcode"></svg>
+	</div>
+	
+</body>
+<script>
+    var barcode = document.getElementById('barcode'),
+        str = document.getElementById('iban').value,
+        options = {
+            format: "CODE128",
+            displayValue: true,
+            fontSize: 18,
+            height: 100
+        };
+    JsBarcode(barcode, str, options); 
+</script>
+</html>
